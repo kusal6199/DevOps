@@ -1,0 +1,32 @@
+package com.example.CrudStudentApi.controller;
+
+import com.example.CrudStudentApi.entity.Student;
+import com.example.CrudStudentApi.repository.StudentRepository;
+import com.example.CrudStudentApi.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/student")
+public class StudentController {
+    
+    @Autowired
+    private StudentService service;
+
+    @GetMapping
+    public ResponseEntity<List<Student>> getAllStudents(){
+        List<Student> students = service.getAllStudents();
+        return ResponseEntity.ok(students);
+    }
+
+    @PostMapping
+    private ResponseEntity<Student> createStudent(@RequestBody Student student){
+        service.saveStudent(student);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+}
