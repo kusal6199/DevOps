@@ -29,4 +29,12 @@ public class StudentController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletStudent(@PathVariable Long id){
+        service.deleteStudentById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+
+
 }
