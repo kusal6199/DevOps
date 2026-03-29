@@ -33,4 +33,4 @@ build/
 .vscode/
 
 #igonore application.yml file
-src/main/resources/application.yml
+src/main/resources/application2.yml
