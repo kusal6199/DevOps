@@ -22,7 +22,15 @@ public class StudentService {
         return repository.findAll();
     }
 
-    public void deleteStudentById(@PathVariable Long id){
+    public void deleteStudentById(Long id){
         repository.deleteById(id);
+    }
+
+    public Student findStudentById(Long id){
+        return repository.getStudentById(id);
+    }
+
+    public Long getStudentId(Student student) {
+        return student.getId();
     }
 }

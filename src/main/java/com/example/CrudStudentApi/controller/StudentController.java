@@ -35,6 +35,24 @@ public class StudentController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PutMapping
+    public ResponseEntity<?> updateStudent(@RequestBody Student student){
+        Student oldStudent = service.findStudentById(student.getId());
+        if (oldStudent != null){
+            if (student.getAddress()!=null){
+                oldStudent.setAddress(student.getAddress());
+            }
+
+            if (student.getEmail()!=null)
+                oldStudent.setEmail(student.getEmail());
+
+            if (student.getFullName()!=null)
+                oldStudent.setFullName(student.getFullName());
+
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 
 
 }
